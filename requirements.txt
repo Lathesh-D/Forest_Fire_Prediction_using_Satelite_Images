@@ -1,0 +1,12 @@
+# Core deep learning libraries
+torch
+torchvision
+torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+# Data manipulation and machine learning
+pandas
+scikit-learn
+Pillow
+
+# Web application framework
+streamlit
