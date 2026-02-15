@@ -1,0 +1,205 @@
+API Script initialized
+API Script initialized
+Registering user: lathesh
+Registration successful
+Login attempt: lathesh
+Login successful
+Login attempt: lathesh
+Login successful
+API Script initialized
+API Script initialized
+API Script initialized
+Attempting to send email from: agnipashana@gmail.com to latheshderla@gmail.com
+Email sending failed: Exception raised (535, '5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-824c6a62828sm6383571b3a.26 - gsmtp'), check your credentials or email service configuration
+Attempting to send email from: agnipashana@gmail.com to agnipashana@gmail.com
+Email sending failed: Exception raised (535, '5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3567ebc34c4sm12434433a91.13 - gsmtp'), check your credentials or email service configuration
+API Script initialized
+Attempting to send email from: agnipashana@gmail.com to latheshderla@gmail.com
+Email sending failed: Exception raised (535, '5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2ad1a6fa229sm32319885ad.18 - gsmtp'), check your credentials or email service configuration
+Attempting to send email from: agnipashana@gmail.com to latheshderla@gmail.com
+Email sending failed: Exception raised (535, '5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-35662e6d098sm15972417a91.8 - gsmtp'), check your credentials or email service configuration
+API Script initialized
+Attempting to send email from: lathesh to latheshderla@gmail.com
+Email sending failed: 1 validation error for MessageSchema
+recipients.0
+  value is not a valid email address: An email address must have an @-sign. [type=value_error, input_value='lathesh', input_type=str]
+API Script initialized
+Attempting to send email from: lathesh to latheshderla@gmail.com
+Email sending failed: 1 validation error for MessageSchema
+recipients.0
+  value is not a valid email address: An email address must have an @-sign. [type=value_error, input_value='lathesh', input_type=str]
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Attempting to send email from: agnipashana@gmail.com to latheshderla@gmail.com
+Email sending failed: Exception raised (535, '5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2ad1ace5bd1sm35039955ad.90 - gsmtp'), check your credentials or email service configuration
+Registering user: Derla
+Registration successful
+Login attempt: Derla
+Login successful
+Attempting to send email from: agnipashana@gmail.com to latheshderla@gmail.com
+Email sending failed: Exception raised (535, '5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-3567eba96d0sm12185047a91.11 - gsmtp'), check your credentials or email service configuration
+Attempting to send email from: agnipashana@gmail.com to latheshderla@gmail.com
+Email sending failed: Exception raised (535, '5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-824c6a2e936sm6693325b3a.6 - gsmtp'), check your credentials or email service configuration
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Attempting to send email from: agnipashana@gmail.com to latheshderla@gmail.com
+Email sending failed: Exception raised (535, '5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-824c6a627a5sm8331595b3a.27 - gsmtp'), check your credentials or email service configuration
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Attempting to send email from: agnipashana@gmail.com to latheshderla@gmail.com
+Email sent successfully
+Login attempt: Derla
+Login successful
+Login attempt: Derla
+Login successful
+Login attempt: 
+Login failed: Invalid credentials
+Login attempt: Derla
+Login successful
+Login attempt: Derla
+Login successful
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Login attempt: Derla
+Login successful
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Login attempt: Derla
+Login successful
+Registering user: Lathesh
+Registration successful
+Login attempt: Lucky
+Login failed: Invalid credentials
+Login attempt: lucky
+Login failed: Invalid credentials
+Login attempt: lucky
+Login failed: Invalid credentials
+Login attempt: lucky
+Login failed: Invalid credentials
+Login attempt: lucky
+Login failed: Invalid credentials
+Login attempt: lathesh
+Login failed: Invalid credentials
+Login attempt: lathesh
+Login failed: Invalid credentials
+Login attempt: Lathesh
+Login successful
+Login attempt: lathesh
+Login failed: Invalid credentials
+Login attempt: Lathesh
+Login failed: Invalid credentials
+Login attempt: Lathesh
+Login failed: Invalid credentials
+Login attempt: Lathesh
+Login failed: Invalid credentials
+Login attempt: Lathesh
+Login failed: Invalid credentials
+Login attempt: lathesh
+Login failed: Invalid credentials
+Login attempt: lathesh
+Login failed: Invalid credentials
+Registering user: Lathesh
+Registration failed: Username exists
+Registering user: LatheshD
+Registration successful
+Login attempt: LatheshD
+Login successful
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Login attempt: LatheshD
+Login successful
+Sending analysis report to latheshderla@gmail.com
+Login attempt: LatheshD
+Login successful
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Login attempt: LatheshD
+Login successful
+API Script initialized
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Login attempt: LatheshD
+Login attempt: LatheshD
+Login attempt: LatheshD
+Registering user: LatheshD
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Registering user: LatheshD
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Registering user: Lucky
+Registering user: Lucky
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Registering user: Lucky
+Registering user: Lathesh
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Registering user: Lathesh
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Registering user: Lathesh
+Registration successful
+Login attempt: Lathesh
+Login successful
+Updating profile for: Lathesh
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Prediction: Probs=[[0.35018789768218994, 0.6498121023178101]], Index=1, Class=No Fire
+Prediction: Probs=[[0.35018789768218994, 0.6498121023178101]], Index=1, Class=No Fire
+Prediction: Probs=[[0.7839739918708801, 0.21602602303028107]], Index=0, Class=Fire
+Prediction: Probs=[[0.35018789768218994, 0.6498121023178101]], Index=1, Class=No Fire
+Prediction: Probs=[[0.35018789768218994, 0.6498121023178101]], Index=1, Class=No Fire
+Prediction: Probs=[[0.2655165493488312, 0.7344834804534912]], Index=1, Class=No Fire
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Prediction: Probs=[[0.35018789768218994, 0.6498121023178101]], Index=1, Class=Fire
+Login attempt: 
+Login failed: Invalid credentials
+Login attempt: Lathesh
+Login successful
+Login attempt: Lathesh
+Login successful
+Login attempt: Lathesh
+Login successful
+Login attempt: Lathesh
+Login successful
+Prediction: Probs=[[0.2655165493488312, 0.7344834804534912]], Index=1, Class=Fire
+Prediction: Probs=[[0.35018789768218994, 0.6498121023178101]], Index=1, Class=Fire
+Login attempt: Lathesh
+Login failed: Invalid credentials
+Login attempt: Lathesh
+Login successful
+API Script initialized
+Loaded .env from L:\Forest1\backend\.env
+Email Config: User=agnipashana@gmail.com, Server=smtp.gmail.com, Port=587
+Login attempt: Lathesh
+Login successful
+Updating profile for: Lathesh
+Profile updated successfully
+Login attempt: Lathesh
+Login successful
+Updating profile for: Lathesh
+Profile updated successfully
+Prediction: Probs=[[0.35018789768218994, 0.6498121023178101]], Index=1, Class=Fire
+Sending analysis report to latheshderla@gmail.com
+Prediction: Probs=[[0.2655165493488312, 0.7344834804534912]], Index=1, Class=Fire
+Login attempt: 
+Login failed: Invalid credentials
+Login attempt: Lathesh
+Login successful

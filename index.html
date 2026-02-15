@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Sentinel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            /* Fallback */
+            background-image: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.6s;
+            display: none;
+            /* Hidden by default */
+        }
+
+        .card.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Input Fields */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            /* Important for padding */
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Buttons */
+        button {
+            width: 100%;
+            background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: #333;
+            font-weight: 400;
+            margin-top: 10px;
+            text-decoration: underline;
+        }
+
+        .secondary-btn:hover {
+            transform: none;
+            color: #4CAF50;
+        }
+
+        h1 {
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .error {
+            color: #d9534f;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .success {
+            color: #4CAF50;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Prediction Result */
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LOGIN SCREEN -->
+        <div id="loginCard" class="card active">
+            <h1>Welcome Back</h1>
+            <p>Sign in to access Forest Fire Sentinel</p>
+            <div class="form-group">
+                <input type="text" id="loginUsername" placeholder="Username">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button onclick="handleLogin()">Sign In</button>
+                <button class="secondary-btn" onclick="showRegister()">Create an Account</button>
+                <div id="loginMsg"></div>
+            </div>
+        </div>
+
+        <!-- REGISTER SCREEN -->
+        <div id="registerCard" class="card">
+            <h1>Join Sentinel</h1>
+            <p>Create a new account</p>
+            <div class="form-group">
+                <input type="text" id="regFullname" placeholder="Full Name">
+                <input type="text" id="regEmail" placeholder="Email Address">
+                <input type="text" id="regPhone" placeholder="Phone Number">
+                <input type="text" id="regUsername" placeholder="Choose Username">
+                <input type="password" id="regPassword" placeholder="Choose Password">
+                <button onclick="handleRegister()">Sign Up</button>
+                <button class="secondary-btn" onclick="showLogin()">Back to Login</button>
+                <div id="regMsg"></div>
+            </div>
+        </div>
+
+        <!-- MAIN APP SCREEN -->
+        <div id="appCard" class="card">
+            <h1>🌲 Save Forest</h1>
+            <p>Upload a satellite image to detect fire.</p>
+            <input type="file" id="imageInput" accept="image/*"
+                style="border: 2px dashed #ccc; padding: 20px; background: #f9f9f9;">
+            <br>
+            <button onclick="predict()">Analyze Image</button>
+            <button class="secondary-btn" onclick="logout()">Logout</button>
+            <div id="result"></div>
+        </div>
+
+    </div>
+
+    <script>
+        const API_URL = "http://127.0.0.1:8000";
+
+        // --- UI Navigation ---
+        function showLogin() {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.getElementById('loginCard').classList.add('active');
+            clearMsgs();
+        }
+        function showRegister() {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.getElementById('registerCard').classList.add('active');
+            clearMsgs();
+        }
+        function showApp() {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.getElementById('appCard').classList.add('active');
+        }
+        function clearMsgs() {
+            document.getElementById('loginMsg').innerText = "";
+            document.getElementById('regMsg').innerText = "";
+        }
+
+        // --- Auth Logic ---
+        async function handleLogin() {
+            const u = document.getElementById('loginUsername').value;
+            const p = document.getElementById('loginPassword').value;
+            const msg = document.getElementById('loginMsg');
+
+            try {
+                const res = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: u, password: p })
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    showApp();
+                } else {
+                    msg.innerHTML = `<div class="error">${data.detail}</div>`;
+                }
+            } catch (e) {
+                msg.innerHTML = `<div class="error">Connection Failed</div>`;
+            }
+        }
+
+        async function handleRegister() {
+            const fullname = document.getElementById('regFullname').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+            const u = document.getElementById('regUsername').value;
+            const p = document.getElementById('regPassword').value;
+            const msg = document.getElementById('regMsg');
+
+            if (!u || !p || !fullname || !email) {
+                msg.innerHTML = `<div class="error">All fields are required</div>`;
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        fullname: fullname,
+                        email: email,
+                        phone: phone,
+                        username: u,
+                        password: p
+                    })
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    msg.innerHTML = `<div class="success">Account created! <a href="#" onclick="showLogin()">Login now</a></div>`;
+                } else {
+                    let errorText = data.detail;
+                    if (Array.isArray(data.detail)) {
+                        errorText = data.detail.map(e => e.msg).join(", ");
+                    }
+                    msg.innerHTML = `<div class="error">${errorText}</div>`;
+                }
+            } catch (e) {
+                msg.innerHTML = `<div class="error">Connection Failed</div>`;
+            }
+        }
+
+        function logout() {
+            showLogin();
+        }
+
+        // --- Prediction Logic ---
+        async function predict() {
+            const fileInput = document.getElementById('imageInput');
+            const resultDiv = document.getElementById('result');
+
+            if (fileInput.files.length === 0) {
+                alert("Please select an image first.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+            resultDiv.innerHTML = "<i>Analyzing...</i>";
+
+            try {
+                const response = await fetch(`${API_URL}/predict`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    const color = data.is_fire ? '#d9534f' : '#4CAF50';
+                    const icon = data.is_fire ? '🔥' : '🌳';
+                    resultDiv.innerHTML = `
+                    <div style="margin-top:15px; padding:10px; border-radius:10px; background-color: ${data.is_fire ? '#ffeeee' : '#eeffee'}">
+                        <span style="color: ${color}; font-size: 1.2em;">${icon} Prediction: ${data.prediction}</span> 
+                        <br> 
+                        <small>Confidence: ${(data.confidence * 100).toFixed(1)}%</small>
+                    </div>`;
+                } else {
+                    resultDiv.innerText = "Error: " + data.detail;
+                }
+            } catch (error) {
+                resultDiv.innerText = "Error: Could not connect to API.";
+                console.error(error);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

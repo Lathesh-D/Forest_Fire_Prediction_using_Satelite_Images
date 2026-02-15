@@ -12,6 +12,6 @@ Pillow
 fastapi
 uvicorn
 python-multipart
-mysql-connector-python
-python-dotenv
 fastapi-mail
+python-dotenv
+mysql-connector-python
